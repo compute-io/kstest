@@ -1,0 +1,58 @@
+{
+  "name": "compute-kstest",
+  "version": "0.0.0",
+  "description": "Computes a Kolmogorov-Smirnov goodness-of-fit test.",
+  "author": {
+    "name": "Philipp Burckhardt",
+    "email": "pburckhardt@outlook.com"
+  },
+  "contributors": [
+    {
+      "name": "Philipp Burckhardt",
+      "email": "pburckhardt@outlook.com"
+    }
+  ],
+  "scripts": {
+    "test": "mocha",
+    "test-cov": "istanbul cover ./node_modules/.bin/_mocha --dir ./reports/coverage -- -R spec",
+    "codecov": "istanbul cover ./node_modules/.bin/_mocha --dir ./reports/codecov/coverage --report lcovonly -- -R spec && cat ./reports/codecov/coverage/lcov.info | codecov && rm -rf ./reports/codecov"
+  },
+  "main": "./lib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/compute-io/kstest.git"
+  },
+  "keywords": [
+    "compute.io",
+    "compute",
+    "computation",
+    "mathematics",
+    "math",
+    "statistics",
+    "stats",
+    "test",
+    "hypothesis",
+    "goodness-of-fit"
+  ],
+  "bugs": {
+    "url": "https://github.com/compute-io/kstest/issues"
+  },
+  "dependencies": {
+    "compute-incrspace": "^1.0.2",
+    "compute-max": "^1.0.1",
+    "compute-roundn": "^1.0.3",
+    "validate.io-function": "^1.0.2",
+    "validate.io-number-array": "^1.0.0",
+    "validate.io-object": "^1.0.4",
+    "validate.io-string-primitive": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "3.x.x",
+    "codecov.io": "^0.1.5",
+    "istanbul": "^0.3.0",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x",
+    "mocha": "2.x.x"
+  },
+  "license": "MIT"
+}
