@@ -1,7 +1,7 @@
 {
   "name": "compute-kstest",
   "version": "0.0.0",
-  "description": "Computes a Kolmogorov-Smirnov goodness-of-fit test.",
+  "description": "One-sample Kolmogorov-Smirnov goodness-of-fit test.",
   "author": {
     "name": "Philipp Burckhardt",
     "email": "pburckhardt@outlook.com"
