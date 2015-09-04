@@ -1,4 +1,4 @@
-kruskal-test
+Kolmogorov-Smirnov Goodness-of-Fit Test
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
@@ -100,6 +100,54 @@ out = kstest( x, 'uniform', {
 	'sorted': true
 });
 // returns { pValue: ~1, T: 0.1 }
+```
+
+## Examples
+
+``` javascript
+var kstest = require( 'compute-kstest' ),
+	x,
+	out,
+	table;
+
+// Values drawn from a Normal(3,1) distribution
+x = [ 1.956335, 4.188998, 2.000942, 2.908463, 3.673476,
+	4.395047, 3.367432, 2.074397, 1.754223, 3.943273, 1.907448, 2.239214,
+	3.205089, 1.650116, 3.772828, 2.969861, 2.453575, 2.371188, 4.207656,
+	2.716989 ];
+
+// Test against N(0,1)
+out = kstest( x, 'normal' );
+// returns { pValue: 0, T: ~0.951 }
+
+table = out.toString();
+/*
+Kolmogorov-Smirnov goodness-of-fit test.
+	null hypothesis: the CDF of `x` is equal equal to the reference CDF.
+	test statistic: 0.9505
+	p-value: 0
+*/
+
+// Test against N(3,1)
+out = kstest( x, 'normal', {
+	'mu': 3
+});
+// returns { pValue: ~0.647, T: ~0.157 }
+
+table = out.toString();
+/*
+Kolmogorov-Smirnov goodness-of-fit test.
+	null hypothesis: the CDF of `x` is equal equal to the reference CDF.
+	test statistic: 0.1576
+	p-value: 0.6467
+
+*/
+```
+
+To run the example code from the top-level application directory,
+
+``` bash
+$ node ./examples/index.js
 ```
 
 
